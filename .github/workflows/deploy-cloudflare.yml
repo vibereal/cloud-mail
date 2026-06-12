@@ -15,7 +15,7 @@ jobs:
 
     env:
       NAME: ${{ secrets.NAME || vars.NAME || 'cloud-mail' }}
-      # ACTIONS_ALLOW_USE_UNSECURE_NODE_VERSION: true
+      FORCE_JAVASCRIPT_ACTIONS_TO_NODE24: true
       CUSTOM_DOMAIN: ${{ secrets.CUSTOM_DOMAIN || vars.CUSTOM_DOMAIN }}
       DOMAIN: ${{ secrets.DOMAIN || vars.DOMAIN }}
       ADMIN: ${{ secrets.ADMIN || vars.ADMIN }}
@@ -51,7 +51,7 @@ jobs:
       - name: ⚙ 设置 Node.js / Set up Node.js
         uses: actions/setup-node@v4
         with:
-          node-version: "24"
+          node-version: "22"
           cache: "pnpm"
           cache-dependency-path: "./mail-worker/pnpm-lock.yaml"
 
